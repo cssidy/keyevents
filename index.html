@@ -41,13 +41,11 @@
 
 
     function keyCatch(event, output) {
-        // catch enter key = submit (Safari on iPhone=10)
-        if (event.which == 10 || event.which == 13) {
-            event.preventDefault();
-        }
+
         // show event.which
         output.html("event.keyCode " + event.keyCode);
-        // report invisible keys
+
+        // keys not recognized by keypress
         switch (event.which) {
             case 0:
                 output.append("event.which not sure");
@@ -65,8 +63,24 @@
                 output.append(" Home");
                 break;
         }
+
+        // block keys
+        // 48 - 57 are numeric 0-9
+        // 46 is decimal point
+        // 10 and 13 are Safari on iPhone default for enter/submit
+        switch (true) {
+            case (event.which >= 48 && event.keyCode <= 57 || event.keyCode == 46):
+                output.append(" True");
+                break;
+            default:
+                output.append(" False");
+                break;
+        }
     }
+
+
 
 </script>
 
 </body>
+</html>
