@@ -15,8 +15,8 @@
 
 <form>
     <label for="inputValue">Enter value</label>
-    <input id="inputValue" type="text" pattern="[0-9]{0,3}\.{1}?[0-9]{0,2}" name="regexPattern"
-           title="Integers only. Max value 999.99.">
+    <input id="inputValue" type="number">
+
     <input type="submit">
 </form>
 
@@ -41,7 +41,7 @@
 <p>charCode is never set in the keydown and keyup events. In these cases, keyCode is set instead.</p>
 <p>To get the code of the key regardless of whether it was stored in keyCode or charCode, query the which property.</p>
 
-
+<p>This is the regular expression that I tried to use, but found another solution... [0-9]{0,3}\.{1}?[0-9]{0,2}</p>
 
 
 <script type="text/javascript">
@@ -129,3 +129,10 @@
     });
 
 
+
+
+
+</script>
+
+</body>
+</html>
