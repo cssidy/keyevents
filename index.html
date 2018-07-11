@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Keys</title>
+    <title>Keyevents</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 </head>
 <body>
@@ -13,6 +13,7 @@
 </form>
 
 <p>Keypress: <span id="outputKeypress"></span></p>
+<p>Keydown: <span id="outputKeydown"></span></p>
 <p>Keyup: <span id="outputKeyup"></span></p>
 
 
@@ -22,10 +23,15 @@
     $(function () {
         let inputValue = $("#inputValue");
         let outputKeypress = $("#outputKeypress");
+        let outputKeydown = $("#outputKeydown");
         let outputKeyup = $("#outputKeyup");
 
         inputValue.keypress(function (event) {
             keyCatch(event, outputKeypress);
+        });
+
+        inputValue.keydown(function (event) {
+            keyCatch(event, outputKeydown);
         });
 
         inputValue.keyup(function (event) {
@@ -64,4 +70,3 @@
 </script>
 
 </body>
-</html>
