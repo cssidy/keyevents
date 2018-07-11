@@ -9,13 +9,19 @@
         small {
             color: #0000EE;
         }
+
+        input[type=number]::-webkit-inner-spin-button,
+        input[type=number]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
     </style>
 </head>
 <body>
 
 <form>
     <label for="inputValue">Enter value</label>
-    <input id="inputValue" type="number">
+    <input id="inputValue" type="number" step="0.01">
 
     <input type="submit">
 </form>
@@ -108,10 +114,12 @@
 
             // block keys
             // 48 - 57 are numeric 0-9
-            // 46 is decimal point
+            // 46 and 190 are decimal point
             // 10 and 13 are Safari on iPhone default for enter/submit
+            // 8 and 46 are backspace
             switch (true) {
-                case (event.which >= 48 && event.which <= 57 || event.which == 46):
+                case (event.which >= 48 && event.which <= 57 || event.which == 40 || event.which == 46 || event.which == 190 ||
+                    event.which == 46 || event.which == 8):
                     output.append(" True");
                     break;
                 default:
